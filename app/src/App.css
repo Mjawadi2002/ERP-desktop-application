@@ -1,0 +1,23 @@
+.login-form {
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  border-radius: 20px; /* Border radius */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  max-width: 300px; /* Adjust as needed */
+  width: 100%; /* Full width of the column */
+}
+.card{
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  border-radius: 20px; /* Border radius */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
+
+
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
