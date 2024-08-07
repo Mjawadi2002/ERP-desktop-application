@@ -13,6 +13,24 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
 }
 
+.cardservice{
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  border-radius: 20px; /* Border radius */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  width: 100%; /* Full width of the column */
+  max-width: 500px; /* Adjust as needed */
+}
+
+.cardprofile{
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  border-radius: 20px; /* Border radius */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  width: 100%; /* Full width of the column */
+  max-width: 500px; /* Adjust as needed */
+}
+
 
 
 .center-content {
@@ -21,3 +39,4 @@
   justify-content: center;
   align-items: center;
 }
+

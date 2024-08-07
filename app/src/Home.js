@@ -8,7 +8,7 @@ export default function Home() {
     
 
     const functionalities = [
-        { id: "1", title: "Manage Daily", description: "This user functionality gives the user the opportunity to set the daily income and costs", image: stock ,destination:"/managedaily"},
+        { id: "1", title: "Manage Daily", description: "This user functionality gives the user the opportunity to set the daily income and costs", image: stock ,destination:"/dailyform"},
         { id: "2", title: "Manage Service", description: "This user functionality gives the user the opportunity to manage the daily set", image: manage,destination:"/manageservice" },
     ];
 

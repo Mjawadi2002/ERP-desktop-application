@@ -1,9 +1,9 @@
 .card-container {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap; 
 }
 
 .card {
-    flex: 1 0 18rem; /* Adjust flex properties as needed */
+    flex: 1 0 14rem; /* Adjust flex properties as needed */
 }
