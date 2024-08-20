@@ -3,22 +3,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const dailySchema = new Schema({
-    id: {
-        type: String,
+    express_quantity: {
+        type: Number,
         required: true
     },
-    express_quantity: {
-        type: Number
-    },
     capucin_quantity: {
-        type: Number
+        type: Number,
+        required: true
     },
     direct_quantity: {
-        type: Number
+        type: Number,
+        required: true
     },
     jus_quantity: {
-        type: Number
+        type: Number,
+        required: true
     }
-}, { timestamps: true }); 
+}, { timestamps: true });
 
-module.exports = mongoose.model('daily', dailySchema);
+module.exports = mongoose.model('Daily', dailySchema);

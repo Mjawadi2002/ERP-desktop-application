@@ -1,25 +1,20 @@
-const express=require('express')
-const Daily=require('../models/dailymodel')
-const router=express.Router()
-const{createDaily,getAllDaily,getDailyById,deleteDailyById,updateDailyById}=require('../controllers/dailyController')
+const express = require('express');
+const router = express.Router();
+const { createDaily, getAllDaily, getDailyById, deleteDailyById, updateDailyById } = require('../controllers/dailyController');
 
-//get all daily info
+// Get all daily records
+router.get('/', getAllDaily);
 
-router.get('/',getAllDaily)
+// Get a daily record by ID
+router.get('/:id', getDailyById);
 
-//get a daily by id
+// Create a daily record
+router.post('/create', createDaily);
 
-router.get('/:id',getDailyById)
+// Delete a daily record by ID
+router.delete('/delete/:id', deleteDailyById);
 
-//create a daily journal
+// Update a daily record by ID
+router.patch('/update/:id', updateDailyById);
 
-router.post('/create',createDaily );
-
-//delte a daily journal by id
-
-router.delete('/delete/:id',deleteDailyById)
-
-//update by id
-router.patch('/update/:id',updateDailyById)
-
-module.exports=router;
+module.exports = router;

@@ -1,60 +1,52 @@
-const Daily=require('../models/dailymodel')
-const mongoose = require('mongoose')
+const Daily = require('../models/dailymodel');
 
-//get all daily 
-const getAllDaily=async(req,res)=>{
-    const dailies=await Daily.find().sort()
-    res.status(200).send(dailies)
-}
-
-//get daily by id
-const getDailyById=async(req,res)=>{
-    const{id}=req.params
-    const daily=await Daily.findById(id)
-    if(!daily){
-        return res.status(404).send('not existing')
-    }
-    res.status(200).send(daily)
-}
-
-//create daily
-const createDaily=async (req, res) => {
-    const { id, express_quantity, capucin_quantity, direct_quantity, jus_quantity } = req.body;
+const createDaily = async (req, res) => {
     try {
-        const daily = await Daily.create({ id, express_quantity, capucin_quantity, direct_quantity, jus_quantity });
-        res.status(200).send(daily); 
+        const dailyData = new Daily(req.body);
+        await dailyData.save();
+        res.status(201).json(dailyData);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(400).json({ error: error.message });
     }
-}
+};
 
-//delete daily by id 
-const deleteDailyById=async(req,res)=>{
-    const {id}=req.params
-    const daily=await Daily.findOneAndDelete({_id:id})
-    if(!daily){
-        return res.status(404).send('not found to be deleted')
+const getAllDaily = async (req, res) => {
+    try {
+        const data = await Daily.find();
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
-    res.status(200).send(daily)
-}
+};
 
-//update daily by id
-const updateDailyById=async(req,res)=>{
-    const{id}=req.params;
-    const daily= await Daily.findOneAndUpdate({_id:id},{
-        ...req.body
-    })
-    if(!daily){
-        res.status(404).send('not updated because not found')
+const getDailyById = async (req, res) => {
+    try {
+        const data = await Daily.findById(req.params.id);
+        if (!data) return res.status(404).json({ error: 'Daily record not found' });
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
-    res.status(200).send(daily)
-}
+};
 
+const deleteDailyById = async (req, res) => {
+    try {
+        const data = await Daily.findByIdAndDelete(req.params.id);
+        if (!data) return res.status(404).json({ error: 'Daily record not found' });
+        res.status(200).json({ message: 'Daily record deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
-module.exports={
-    createDaily,
-    getAllDaily,
-    getDailyById,
-    deleteDailyById,
-    updateDailyById
-}
+const updateDailyById = async (req, res) => {
+    try {
+        const data = await Daily.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!data) return res.status(404).json({ error: 'Daily record not found' });
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+module.exports = { createDaily, getAllDaily, getDailyById, deleteDailyById, updateDailyById };

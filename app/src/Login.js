@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import logo from './images/logo.png'; 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function Login({ setLogin }) {
+export default function Login({ setLogin, setAdmin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -10,11 +10,13 @@ export default function Login({ setLogin }) {
   const login = (event) => {
     event.preventDefault();
     if (username === 'admin' && password === 'adminpassword') {
-      setLogin('true');
-      navigate('/admin');
+      setLogin(true);
+      setAdmin(true);  
+      navigate('/home');  
     } else {
-      setLogin('true');
-      navigate('/home');
+      setLogin(true);
+      setAdmin(false);  
+      navigate('/home');  
     }
   };
 

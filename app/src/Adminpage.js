@@ -6,7 +6,7 @@ import reports from './images/generatereports.jpeg'
 import './Home.css';  
 function Admin(){
     const functions=[
-        { id:"1",title:"Manage service",description:"this functionality is for the admin to fetch data from daily",image:manage,destination:"/data"},
+        { id:"1",title:"Manage service",description:"this functionality is for the admin to fetch data from daily",image:manage,destination:"/manageservice"},
         { id:"2",title:"Manage Employers",description:"this functionality is for the admin to manage employers",image:employers,destination:"/employers"},
         { id:"3",title:"Generate reports",description:"this functionality is for the admin to generate reports",image:reports,destination:"/reports"}
     ]
